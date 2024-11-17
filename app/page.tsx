@@ -2,9 +2,15 @@ import dynamic from "next/dynamic";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { FaHome } from "react-icons/fa";
 
-// Dynamically import components that need browser APIs
-const Grid = dynamic(() => import("@/components/Grid"), { ssr: false });
-const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
+const Grid = dynamic(() => import("@/components/Grid"), {
+  ssr: false,
+  loading: () => <p>Loading Grid...</p>,
+});
+
+const Hero = dynamic(() => import("@/components/Hero"), {
+  ssr: false,
+  loading: () => <p>Loading Hero...</p>,
+});
 
 export default function Home() {
   const navItems = [
