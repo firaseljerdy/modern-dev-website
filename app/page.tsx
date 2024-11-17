@@ -26,6 +26,15 @@ const Hero = dynamic(() => import("@/components/Hero"), {
   ),
 });
 
+const RecentProjects = dynamic(() => import("@/components/RecentProjects"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full space-y-4">
+      <Skeleton className="h-[400px] w-full rounded-lg" />
+    </div>
+  ),
+});
+
 export default function Home() {
   const navItems = [
     {
@@ -41,6 +50,7 @@ export default function Home() {
         <FloatingNav navItems={navItems} />
         <Hero />
         <Grid />
+        <RecentProjects />
       </div>
     </main>
   );
