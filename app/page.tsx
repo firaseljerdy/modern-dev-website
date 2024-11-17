@@ -1,6 +1,10 @@
-import Hero from "@/components/Hero";
+import dynamic from "next/dynamic";
 import { FloatingNav } from "@/components/ui/FloatingNav";
 import { FaHome } from "react-icons/fa";
+
+// Dynamically import components that need browser APIs
+const Grid = dynamic(() => import("@/components/Grid"), { ssr: false });
+const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
 
 export default function Home() {
   const navItems = [
@@ -9,7 +13,6 @@ export default function Home() {
       link: "/",
       icon: <FaHome />,
     },
-    // Add more nav items as needed
   ];
 
   return (
@@ -17,6 +20,7 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <FloatingNav navItems={navItems} />
         <Hero />
+        <Grid />
       </div>
     </main>
   );

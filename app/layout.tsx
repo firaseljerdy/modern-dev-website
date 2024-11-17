@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { Inter } from "next/font/google";
+
+import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Firas Portfolio",
-  description: "The best portfolio in the world",
+  title: "Firas' Portfolio",
+  description: "Modern & Minimal JS Mastery Portfolio",
 };
 
 export default function RootLayout({
@@ -16,9 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        {" "}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/jsm-logo.png" sizes="any" />
+      </head>
+      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
