@@ -50,8 +50,11 @@ export const BentoGridItem = ({
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText("firas.aljerdy@gmail.com");
-    setCopied(true);
+    window.location.href = "mailto:firas.aljerdy@gmail.com";
+    setCopied(false);
+    setTimeout(() => {
+      setCopied(true);
+    }, 100);
   };
 
   return (
@@ -147,7 +150,7 @@ export const BentoGridItem = ({
                 />
               </div>
               <MagicButton
-                title={copied ? "Email copied" : "Copy email"}
+                title="Send email"
                 icon={<IoCopyOutline />}
                 position="left"
                 otherClasses="!bg-[#161A31]"
